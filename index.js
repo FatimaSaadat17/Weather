@@ -25,7 +25,7 @@ app.post("/weather", async (req, res) => {
         console.log(ISO2) ;
         const response = await axios.get(`https://api.api-ninjas.com/v1/geocoding?city=${Capitalize(req.body.city)}&country=${ISO2}`, {
             headers: {
-                "X-Api-Key" : "vimL3rAaAl4oVY2IGsL6Mw==20GX9tiNnRf7mSvR",
+                "X-Api-Key" : "Your-ninja-api-key",
                 "Accept": "application/json",
             }
         });
