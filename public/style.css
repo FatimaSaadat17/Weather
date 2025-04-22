@@ -1,0 +1,109 @@
+.main-card {
+    border-radius: 25px;
+    width: 170vh;
+    height: 155vh;
+    margin: auto;
+    margin-top: 20px;
+    background: #26ced1;
+    background: linear-gradient(0deg, rgba(38, 206, 209, 1) 0%, rgba(45, 156, 253, 1) 100%);
+}
+
+.secondary-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 15px 15px 20px;
+}
+
+.weather {
+    display: flex;
+    justify-content: center;
+    height: 82vh;
+    width: 40vh;
+    border-radius: 15px;
+    background: #ffffff;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(159, 233, 235, 1) 100%, rgba(255, 255, 255, 1) 100%);
+}
+
+.current-weather {
+    height: 70vh;
+}
+
+.current-weather-image {
+    display: flex;
+    justify-content: center;
+}
+.current-weather-image img {
+    margin-top: 10px;
+    height: 360px;
+}
+.main-box {
+    margin-top: 10px;
+    border-radius: 15px;
+    height: 15vh;
+    width: 40vh;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.current-weather-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+.icon-main {
+    height: 70px;
+    padding-left: 8px;
+}
+
+.nunito {
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.main-box-text {
+    font-size: 17px;
+    color: black;
+}
+.secondary-details {
+    padding-left: 10px;
+    align-items: center;
+    gap: 10px;
+    display: flex;
+    height: 65px;
+    width: 250px;
+    border-radius: 25px;
+    margin-top: 10px;
+    text-align: center;
+    background-color: white;
+    box-shadow: rgba(14, 63, 126, 0.04) 0px 0px 0px 0px, rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.04) 0px 6px 6px -3px, rgba(14, 63, 126, 0.04) 0px 10px 10px -6px, rgba(14, 63, 126, 0.04) 0px 24px 24px -12px;
+}
+.icon-secondary {
+    height: 50px;
+}
+.secondary-box-text {
+    font-size: 16px;
+}
+.secondary-image {
+    text-align: center;
+}
+.secondary-image img {
+    height: 200px;
+}
+
+p {
+    font-size: 22px;
+}
+
+.title {
+    text-align: center;
+    height: 30px;
+    background-color: whitesmoke;
+    border-radius: 30px;
+    width: 150px;
+    margin: auto;
+    padding-bottom: 3px;
+}

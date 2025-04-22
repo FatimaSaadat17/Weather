@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <% let date = new Date(); %>
+    <% let hours = date.getHours(); %>
+    <% function getTime(hours) {
+        if (12 >= hours && hours > 0) {
+            return "noon"
+        }
+        else if (15 >= hours && hours > 12) {
+            return "afternoon"
+        }
+        else if (18 >= hours && hours > 15) {
+            return "evening"
+        } 
+        else if (21 >= hours && hours > 18) {
+            return "night"
+        }
+        else if ((23 >= hours && hours > 21)) {
+            return "midnight"
+        }
+        else if (hours === 0) {
+            return "midnight"
+        }
+    } %>
+    <% let time = getTime(hours) %>
+    <% function removeItem(content, item) {
+        let idx = content.indexOf(item)
+        content.splice(idx, 1)
+        return content
+    } %>
+    <% function getNewArray() {
+        if (time === "midnight") {
+            let item = content[0]
+            let newArr = removeItem(content, content[0])
+            return [newArr, content[0]]
+        }
+        else if (time === "night") {
+            let item = content[3]
+            let newArr = removeItem(content, content[3])
+            return [newArr, item]
+        }
+        else if (time === "noon") {
+            let item = content[4]
+            let newArr = removeItem(content, content[4])
+            return [newArr, item]
+        }
+        else if (time === "afternoon") {
+            let item = content[1]
+            let newArr = removeItem(content, content[1])
+            return [newArr, item]
+        }
+        else if (time === "evening") {
+            let item = content[2]
+            let newArr = removeItem(content, content[2])
+            return [newArr, item]
+        }
+    } %>
+     <% let weather = getNewArray() %>
+        <div class="main-card">
+            <div class="current-weather">
+                <div class="current-weather-image">
+                    <img src="png/<%=weather[1].symbol_code_1hour%>.png">
+                </div>
+                <div class="current-weather-details">
+                    <div class="main-box">
+                        <div>
+                            <img src=icons/barometer.png class="icon-main">
+                        </div>
+                        <div>
+                            <h2 class="nunito main-box-text">Air Pressure: <%= weather[1].airPressureAtSeaLevel %> Pa</h2>
+                        </div>
+                    </div>
+                    <div class="main-box">
+                        <div>
+                            <img src=icons/humidity.png class="icon-main">
+                        </div>
+                        <div>
+                            <h2 class="nunito main-box-text">Rel Humidity: <%= weather[1].relativeHumidity %> %</h2>
+                        </div>
+                    </div>
+                    <div class="main-box">
+                        <div>
+                            <img src=icons/thermometer.png class="icon-main">
+                        </div>
+                        <div>
+                            <h2 class="nunito main-box-text">Temperature:  <%= weather[1].airTemperature %> °C </h2>
+                        </div>
+                    </div>
+                    <div class="main-box">
+                        <div>
+                            <img src=icons/windy.png class="icon-main">
+                        </div>
+                        <div>
+                            <h2 class="nunito main-box-text">Wind Speed: <%= weather[1].windSpeed %> km/h </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="secondary-container">
+                <div class="weather">
+                    <div class="weather-image">
+                        <div class="title">
+                            <p class="nunito"><%= weather[0][0].time %></p>
+                        </div>
+                        <div class="secondary-image">
+                            <img src="png/<%= weather[0][0].symbol_code_1hour%>.png">
+                        </div>
+                        <div class="secondary-details">
+                            <div>
+                                <img src=icons/barometer.png class="icon-secondary">
+                            </div>
+                            <div>
+                                <h2 class="nunito secondary-box-text">Air Pressure: <%= weather[0][0].airPressureAtSeaLevel %> Pa</h2>
+                            </div>
+                        </div>
+                        <div class="secondary-details">
+                            <div>
+                                <img src=icons/humidity.png class="icon-secondary">
+                            </div>
+                            <div>
+                                <h2 class="nunito secondary-box-text">Rel Humidity: <%= weather[0][0].relativeHumidity %> %</h2>
+                            </div>
+                        </div>
+                        <div class="secondary-details">
+                            <div>
+                                <img src=icons/thermometer.png class="icon-secondary">
+                            </div>
+                            <div>
+                                <h2 class="nunito secondary-box-text">Temperature: <%= weather[0][0].airTemperature %> °C</h2>
+                            </div>
+                        </div>
+                        <div class="secondary-details">
+                            <div>
+                                <img src=icons/windy.png class="icon-secondary">
+                            </div>
+                            <div>
+                                <h2 class="nunito secondary-box-text">Wind Speed:  <%= weather[0][0].windSpeed %> km/h</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="weather">
+                    <div class="weather-image">
+                        <div class="title">
+                            <p class="nunito"><%= weather[0][1].time %></p>
+                        </div>
+                        <div class="secondary-image">
+                            <img src="png/<%= weather[0][1].symbol_code_1hour%>.png">
+                        </div>
+                        <div class="secondary-details">
+                            <div>
+                                <img src=icons/barometer.png class="icon-secondary">
+                            </div>
+                            <div>
+                                <h2 class="nunito secondary-box-text">Air Pressure: <%= weather[0][1].airPressureAtSeaLevel %> Pa</h2>
+                            </div>
+                        </div>
+                        <div class="secondary-details">
+                            <div>
+                                <img src=icons/humidity.png class="icon-secondary">
+                            </div>
+                            <div>
+                                <h2 class="nunito secondary-box-text">Rel Humidity: <%=weather[0][1].relativeHumidity %> %</h2>
+                            </div>
+                        </div>
+                        <div class="secondary-details">
+                            <div>
+                                <img src=icons/thermometer.png class="icon-secondary">
+                            </div>
+                            <div>
+                                <h2 class="nunito secondary-box-text">Temperature: <%= weather[0][1].airTemperature%> °C</h2>
+                            </div>
+                        </div>
+                        <div class="secondary-details">
+                            <div>
+                                <img src=icons/windy.png class="icon-secondary">
+                            </div>
+                            <div>
+                                <h2 class="nunito secondary-box-text">Wind Speed: <%= weather[0][1].windSpeed%> km/h </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="weather">
+                    <div class="weather-image">
+                        <div class="title">
+                            <p class="nunito"><%= weather[0][2].time%></p>
+                        </div>
+                        <div class="secondary-image">
+                            <img src="png/<%= weather[0][2].symbol_code_1hour%>.png">
+                        </div>
+                        <div class="secondary-details">
+                            <div>
+                                <img src=icons/barometer.png class="icon-secondary">
+                            </div>
+                            <div>
+                                <h2 class="nunito secondary-box-text">Air Pressure: <%= weather[0][2].airPressureAtSeaLevel%> Pa</h2>
+                            </div>
+                        </div>
+                        <div class="secondary-details">
+                            <div>
+                                <img src=icons/humidity.png class="icon-secondary">
+                            </div>
+                            <div>
+                                <h2 class="nunito secondary-box-text">Rel Humidity: <%= weather[0][2].relativeHumidity%> %</h2>
+                            </div>
+                        </div>
+                        <div class="secondary-details">
+                            <div>
+                                <img src=icons/thermometer.png class="icon-secondary">
+                            </div>
+                            <div>
+                                <h2 class="nunito secondary-box-text">Temperature: <%= weather[0][2].airTemperature%> °C</h2>
+                            </div>
+                        </div>
+                        <div class="secondary-details">
+                            <div>
+                                <img src=icons/windy.png class="icon-secondary">
+                            </div>
+                            <div>
+                                <h2 class="nunito secondary-box-text">Wind Speed: <%= weather[0][2].windSpeed%> km/h</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="weather">
+                    <div class="weather-image">
+                        <div class="title">
+                            <p class="nunito"><%= weather[0][3].time%></p>
+                        </div>
+                        <div class="secondary-image">
+                            <img src="png/<%= weather[0][3].symbol_code_1hour%>.png">
+                        </div>
+                        <div class="secondary-details">
+                            <div>
+                                <img src=icons/barometer.png class="icon-secondary">
+                            </div>
+                            <div>
+                                <h2 class="nunito secondary-box-text">Air Pressure: <%= weather[0][3].airPressureAtSeaLevel%> Pa</h2>
+                            </div>
+                        </div>
+                        <div class="secondary-details">
+                            <div>
+                                <img src=icons/humidity.png class="icon-secondary">
+                            </div>
+                            <div>
+                                <h2 class="nunito secondary-box-text">Rel Humidity: <%= weather[0][3].relativeHumidity%> %</h2>
+                            </div>
+                        </div>
+                        <div class="secondary-details">
+                            <div>
+                                <img src=icons/thermometer.png class="icon-secondary">
+                            </div>
+                            <div>
+                                <h2 class="nunito secondary-box-text">Temperature: <%= weather[0][3].airTemperature%> °C</h2>
+                            </div>
+                        </div>
+                        <div class="secondary-details">
+                            <div>
+                                <img src=icons/windy.png class="icon-secondary">
+                            </div>
+                            <div>
+                                <h2 class="nunito secondary-box-text">Wind Speed: <%= weather[0][3].windSpeed%> km/h</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+    
+        </div>
+
+
+
+
+
+    </div>
+</body>
+</html>
