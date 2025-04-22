@@ -7,5 +7,5 @@ It also makes use of the Ninja Geocode API, which converts a specified location 
 
 Please ensure to create your Ninja API account first, and copypaste your personal API key into the header.
 
-Any improvement in code are appreciated!
+Any improvements in code are appreciated!
 Thank you <3
