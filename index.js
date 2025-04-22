@@ -61,13 +61,9 @@ app.post("/weather", async (req, res) => {
                 object["time"] = time
                 return object
             };
-            let midnight = createData({}, arr[0], "midnight");
-            let afternoon = createData({}, arr[15], "afternoon" );
-            let evening = createData({}, arr[18], "evening");
-            let night = createData({}, arr[21], "night");
-            let noon = createData({}, arr[12], "noon");
+
             // render the webpage for the next day
-            res.render("index.ejs", {content: [midnight, afternoon, evening, night, noon]})
+            res.render("index.ejs", {content: [createData({}, arr[0], "midnight"), createData({}, arr[15], "afternoon" ), createData({}, arr[18], "evening"), createData({}, arr[21], "night"), createData({}, arr[12], "noon")]})
     
         }
         catch (error) {
