@@ -7,5 +7,11 @@ It also makes use of the Ninja Geocode API, which converts a specified location 
 
 Please ensure to create your Ninja API account first, and copypaste your personal API key into the header.
 
+run the "npm i" command in the terminal, to install all the npm packages (express, iso-country-currency, axios, cors...)
+
+to start your server ensure that nodemon is installed, and run the command "nodemon index.js"
+
+edit the .env file based on your own personal needs
+
 Any improvements in code are appreciated!
 Thank you <3
