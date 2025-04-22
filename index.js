@@ -36,7 +36,7 @@ app.post("/weather", async (req, res) => {
             // get the JSON data forecast based on location
             const result = await axios.get(`https://api.met.no/weatherapi/locationforecast/2.0/complete?lat=${lat}&lon=${log}`, {
                 headers: {
-                'User-Agent': 'LocalWeatherApp/1.0 fsa463@student.bham.ac.uk',
+                'User-Agent': 'LocalWeatherApp/1.0 Your-personal-email',
                 'Accept': 'application/json',
                 },
             })
